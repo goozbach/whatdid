@@ -1,0 +1,31 @@
+#!/bin/bash
+#===============================================================================
+#
+#         FILE:  whatdid
+#
+#        USAGE:  ./whatdid
+#
+#  DESCRIPTION:  A script which keeps a simple log of what you're working on
+#
+#      OPTIONS:  ---
+# REQUIREMENTS:  ---
+#         BUGS:  ---
+#        NOTES:  ---
+#       AUTHOR:  Derek Carter (goozbach@friocorte.com), 
+#      VERSION:  1.0
+#      CREATED:  11/13/2009 11:52:48 AM
+#     REVISION:  001
+#===============================================================================
+# no matter where we are source the config file
+_execdir=$(dirname $0)
+. ${_execdir}/../lib/$(basename $0).inc
+
+createdir
+
+cat >> $THISFILE << EOF
+$(date '+%G-%m-%d %R')
+-----
+
+EOF
+
+vim $THISFILE + -c start
