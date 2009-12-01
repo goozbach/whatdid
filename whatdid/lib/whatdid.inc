@@ -26,3 +26,11 @@ createdir() {
   mkdir -p $WEEKDIR 
 }
 
+# git stuff
+
+update_topdir() {
+  MYDIR=${PWD}
+  cd $TOPDIR
+  git commit -am "automated update $(date)"
+  cd $MYDIR
+}

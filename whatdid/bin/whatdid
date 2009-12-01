@@ -29,3 +29,5 @@ $(date '+%G-%m-%d %R')
 EOF
 
 vim $THISFILE + -c start
+
+update_topdir
