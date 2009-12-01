@@ -1,29 +1,25 @@
 # Get the week number
 # should be +1 if today is Friday, Saturday 
 # week should start on Sunday
+WEEKNUM=$(date +%U)
 getweek() {
   # add 1 if day = friday or saturday
-  _week=$(date +%U)
   case $(date +%u) in
   5 ) 
-   ((_week++))
-   echo -n $_week
+   ((WEEKNUM++))
   ;;
   6 ) 
-   ((_week++))
-   echo -n $_week
+   ((WEEKNUM++))
   ;;
   * ) 
-   return
   ;;
   esac
-  return
 }
 
-WEEKNUM=$(getweek)
 TODAY=$(date --iso)
+YEAR=$(date +%Y)
 TOPDIR=$HOME/.whatdid/
-WEEKDIR=$TOPDIR/$WEEKNUM/
+WEEKDIR=$TOPDIR/$YEAR/$WEEKNUM/
 THISFILE=$WEEKDIR/${TODAY}.log
 
 createdir() {
