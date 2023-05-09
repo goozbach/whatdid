@@ -31,6 +31,7 @@ createdir() {
 update_topdir() {
   MYDIR=${PWD}
   cd $TOPDIR
+  git add .
   git commit -am "automated update $(date)"
   cd $MYDIR
 }
